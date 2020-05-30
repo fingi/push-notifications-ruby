@@ -23,7 +23,8 @@ module Pusher
 
         RestClient::Request.execute(
           method: :post, url: url,
-          payload: body, headers: headers
+          payload: body, headers: headers,
+          verify_ssl: false
         ) do |response|
           status = response.code
           if json?(response.body)
